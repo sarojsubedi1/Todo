@@ -27,3 +27,21 @@ exports.addTodo = async (req, res) => {
     res.status(500).json({ error: "Failed to create todo" });
   }
 };
+
+// @desc   Toggle todo
+// route   PUT /api/todos/:id
+exports.toggleTodo = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const todo = await Todo.findById(id);
+    if (!todo) {
+      return res.status(404).json({ error: "Todo not found" });
+    }
+    todo.completed = !todo.completed; // Toggle the completed status
+    await todo.save(); // Save the updated todo
+    return res.json(todo);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+};

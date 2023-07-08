@@ -8,8 +8,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+//Connect database
 dbconnect();
 
+//Routes
 app.use("/api/todos", todoRoutes);
 
 app.listen(port, () => {
