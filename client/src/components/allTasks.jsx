@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTodo, deleteTodo } from "../features/todos/todoSlice";
-import { FaTrash, FaPen } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
 const AllTasks = () => {
   const dispatch = useDispatch();
-
   const todos = useSelector((state) => state.todos);
-  const todosArray = Array.isArray(todos) ? todos : [];
+
   //Completed Todos
-  const completedTodos = todosArray.filter((todo) => todo.completed);
+  const completedTodos = todos.filter((todo) => todo.completed);
 
   const handleTodoClick = (todoId) => {
     dispatch(toggleTodo(todoId));
@@ -31,7 +30,7 @@ const AllTasks = () => {
               className="mt-5 p-4 flex justify-between items-center gap-3 text-sm bg-[#21212b] rounded-2xl"
               key={todo._id}
             >
-              <h3
+              <div
                 onClick={() => handleTodoClick(todo._id)}
                 className={`${
                   todo.completed
@@ -40,9 +39,8 @@ const AllTasks = () => {
                 }`}
               >
                 {todo.text}
-              </h3>
+              </div>
               <div className="flex gap-4 bg-[#21212b]">
-                <FaPen className="text-white bg-[#21212b]" />
                 <FaTrash
                   onClick={() => handleDelete(todo._id)}
                   className="text-white bg-[#21212b]"

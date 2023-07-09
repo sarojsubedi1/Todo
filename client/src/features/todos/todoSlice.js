@@ -16,7 +16,7 @@ const todoSlice = createSlice({
     toggleTodo: (state, action) => {
       const id = action.payload;
 
-      axios.put(`http://localhost:8000/api/todos/${id}`);
+      axios.put(`http://localhost:8000/api/todos/${id}/toggle`);
 
       const todo = state.find((todo) => todo._id === id);
       if (todo) {
