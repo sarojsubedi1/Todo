@@ -2,7 +2,7 @@
 This is a simple Todo application built using MongoDB, Express.js, React.js, Node.js, Redux, and Tailwind CSS.
 
 ## Screenshot
-![Screenshot](https://github.com/sarojsubedi1/Todo/assets/105138485/c92f89bc-baac-4c4d-8a90-efacb19266c6)
+![Screenshot](https://github.com/sarojsubedi1/Todo/assets/105138485/c6f0a160-1a53-4ecd-93b6-14ae97ce3d79)
 
 ## Features
 - Add a todo: You can add new todos to the list.
