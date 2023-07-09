@@ -45,3 +45,19 @@ exports.toggleTodo = async (req, res) => {
     return res.status(500).json({ error: "Server error" });
   }
 };
+
+// @desc   Delete Todo
+// route   DELETE /api/todos/:id
+exports.deleteTodo = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const todo = await Todo.findByIdAndDelete(id);
+    if (!todo) {
+      return res.status(404).json({ error: "Todo not found" });
+    }
+    return res.json({ message: "Todo deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "Server error" });
+  }
+};

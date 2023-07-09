@@ -11,4 +11,7 @@ router.post("/", todoController.addTodo);
 //Route for toggle completed
 router.put("/:id", todoController.toggleTodo);
 
+//Route for toggle completed
+router.delete("/:id", todoController.deleteTodo);
+
 module.exports = router;
