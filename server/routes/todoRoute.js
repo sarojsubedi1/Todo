@@ -8,10 +8,10 @@ router.get("/", todoController.getAllTodos);
 // Route for add todo
 router.post("/", todoController.addTodo);
 
-//Route for toggle completed
-router.put("/:id", todoController.toggleTodo);
-
-//Route for toggle completed
+//Route for delete todo
 router.delete("/:id", todoController.deleteTodo);
+
+//Route for toggle completed state
+router.put("/:id/toggle", todoController.toggleTodo);
 
 module.exports = router;
